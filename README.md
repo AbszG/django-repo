@@ -1,7 +1,7 @@
 # django-repo
 Frequent django implementations based on django defaults.
 
-this repo is made for testing purposes, please look for more advanced and secure methods in django docs and internet. 
+this repo is made for testing purposes, please look for more advanced and secure methods in django docs and the internet. 
 
 Please read the comments.
 
