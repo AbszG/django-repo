@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="{% static 'js/app.js' %}"></script>
+    <title>products</title>
+</head>
+<body>
+    <div class="section_three">
+        <h4 class="section_three_title">Our <span>Products</span></h4>
+
+        <div class="section_three_box">
+        {% for product in products %}
+
+                <div class="section_three_box_items">
+                    <img class="section_three_box_items_img" src="{{ product.image.url }}" alt=" {{ product.title }} ">
+                    <h5 class="section_three_box_items_par">{{ product.title }}</h5>
+                    <h5 class="section_three_box_items_price">${{ product.price }}</h5>
+                    <form action="{% url 'add_to_cart' product.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="product_id" value="{{ product.id }}">
+                        <button class="icon" type="submit">Add to Cart</button>
+                    </form>
+                    <div class="icon">
+                        <a href="#" class="fas fa-heart"></a>
+                        <a href="#" class="fas fa-eye"></a>
+                    </div>
+                </div>
+        {% endfor %}
+
+        </div>
+
+    </div>
+</body>
+</html>
